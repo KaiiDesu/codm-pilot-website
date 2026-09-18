@@ -30,8 +30,9 @@
     Looking for a <span class="hero-title-accent">Rank Boost?</span>
   </h1>
   <p class="hero-desc" in:fade={{ delay: 200, duration: 600 }}>
-    Call of Duty: Mobile piloting for ranked progression and seasonal grinds.
+    Busy with personal things? You are in the right place. Kaii Rank Services will pilot your account while you focus on what matters.
   </p>
+
     <div class="sp" in:fly={{ y: 20, delay: 400, duration: 600 }}>
       <button type="button" class="sparkle-button" on:click={openTerms}>
         <span class="spark"></span>
