@@ -57,7 +57,6 @@ Services may include ranked progression, seasonal challenges, battle pass grindi
     </div>
   </div>
   <div class="contact-info" in:fly={{ y: 40, duration: 500, delay: 500 }}>
-    <p>Email: <a href="mailto:klloydadvincula@gmail.com">klloydadvincula@gmail.com</a></p>
     <p>Or reach out on social media below:</p>
     <div class="contact-socials">
       <a href="https://www.facebook.com/profile.php?id=61589081225928" aria-label="Facebook">Facebook</a>
