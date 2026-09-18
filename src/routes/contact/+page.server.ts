@@ -1,2 +1,2 @@
-// Prevent prerender from crawling this page (stop build from performing requests that return 405)
-export const prerender = false;
+// GitHub Pages serves the site as static files, so the contact page must be prerendered.
+export const prerender = true;
