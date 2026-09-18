@@ -80,7 +80,7 @@ html {
 @media (max-width: 600px) {
   .main-screen {
     background-image: var(--mobile-background);
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 }
 /* ensure the chat widget appears over other content when it injects a bubble */
