@@ -20,11 +20,8 @@
   <!-- Two-column grid: left = contact desc + form, right = pricing desc + card -->
   <div class="desc-and-cards">
     <div class="col contact-col">
-  <!-- mobile-only title shown inside the column so titles follow the card order on small screens -->
-  <h2 class="mobile-title mobile-contact-title" in:fly={{ y: 20, duration: 300 }}>Contact Me</h2>
-      <div class="contact-desc-align">
-        <p class="contact-desc-form">Let's work together! Fill out the form below or reach out via email.</p>
-      </div>
+
+
 
       <form class="contact-form card" in:fly={{ y: 40, duration: 500, delay: 400 }}>
       <label for="name">Name</label>
@@ -41,17 +38,13 @@
     </div>
 
     <div class="col pricing-col">
-  <h2 class="mobile-title mobile-pricing-title" in:fly={{ y: 20, duration: 300 }}>Pricing</h2>
-      <div class="pricing-desc-align">
-        <p class="pricing-desc">Pricing depends on the project — tell me about your needs via the form or email and I’ll send a tailored, no‑obligation quote.</p>
-      </div>
+
+
 
       <div class="pricing-card card" in:fly={{ y: 40, duration: 500, delay: 400 }}>
         <span class="pricing-text">Pricing Information</span>
         <p class="pricing-details">
-          Pricing depends on your current rank, target rank, game mode, and the number of matches required. Send me a message with your goals and I’ll provide a clear quote before any work begins.
-
-Services may include ranked progression, seasonal challenges, battle pass grinding, and event objectives. Availability varies by schedule, so please contact me to discuss your request.
+          Teka di pato tapos
         </p>
       </div>
     </div>
