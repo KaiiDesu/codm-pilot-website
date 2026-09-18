@@ -49,9 +49,7 @@
       <div class="pricing-card card" in:fly={{ y: 40, duration: 500, delay: 400 }}>
         <span class="pricing-text">Pricing Information</span>
         <p class="pricing-details">
-          Pricing depends on your current rank, target rank, game mode, and the number of matches required. Send me a message with your goals and I’ll provide a clear quote before any work begins.
-
-Services may include ranked progression, seasonal challenges, battle pass grinding, and event objectives. Availability varies by schedule, so please contact me to discuss your request.
+          For detailed pricing information tailored to your project needs, please reach out via the contact form or email. I offer flexible packages to fit a variety of budgets and requirements. Every project is unique, so I take the time to understand your goals and provide a transparent, no-obligation quote. Let’s work together to find the best solution for you!
         </p>
       </div>
     </div>
@@ -60,8 +58,8 @@ Services may include ranked progression, seasonal challenges, battle pass grindi
     <p>Email: <a href="mailto:klloydadvincula@gmail.com">klloydadvincula@gmail.com</a></p>
     <p>Or reach out on social media below:</p>
     <div class="contact-socials">
-      <a href="https://www.facebook.com/profile.php?id=61589081225928" aria-label="Facebook">Facebook</a>
-      <a href="https://discord.com/users/1393580083230539786" aria-label="Discord">Discord</a>
+      <a href="https://www.facebook.com/kaiirodesuu/" aria-label="Facebook">Facebook</a>
+      <a href="https://github.com/KaiiDesu" aria-label="GitHub">GitHub</a>
     </div>
   </div>
 </section>

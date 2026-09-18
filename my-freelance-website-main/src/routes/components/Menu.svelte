@@ -3,14 +3,14 @@
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
   export let menuItems = [
-    { name: '', href: base + '/contact' }
+    { name: 'Contact', href: base + '/contact' }
   ];
   let mobileOpen = false;
   function toggleMobile() { mobileOpen = !mobileOpen; }
 </script>
 
 <nav class="menu-bar" in:fly={{ y: -60, duration: 700 }}>
-  <div class="menu-brand">KaiiDesu</div>
+  <div class="menu-brand">KaiiDesu | Call of Du</div>
   <button class="menu-mobile-btn" aria-label="Open menu" on:click={toggleMobile}>
     <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
   </button>

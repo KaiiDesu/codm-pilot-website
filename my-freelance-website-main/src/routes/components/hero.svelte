@@ -1,39 +1,18 @@
 <script lang="ts">
   import { fly, fade } from 'svelte/transition';
   import { base } from '$app/paths';
-  import { goto } from '$app/navigation';
-  import loadingGif from '../assets/codm-loading.gif';
   let contactHref = base + '/contact';
-  let showTerms = false;
-  let isLoadingContact = false;
-
-  function openTerms() {
-    showTerms = true;
-  }
-
-  function closeTerms() {
-    showTerms = false;
-  }
-
-  function acceptTerms() {
-    if (isLoadingContact) return;
-
-    isLoadingContact = true;
-    setTimeout(() => {
-      goto(contactHref);
-    }, 4500);
-  }
 </script>
 
 <section class="hero-section">
   <h1 class="hero-title" in:fly={{ y: 40, duration: 700 }}>
-    Looking for a <span class="hero-title-accent">Rank Boost?</span>
+    Looking for a <span class="hero-title-accent">Site?</span>
   </h1>
   <p class="hero-desc" in:fade={{ delay: 200, duration: 600 }}>
-    Call of Duty: Mobile piloting for ranked progression and seasonal grinds.
+    Here, you can find modern, clean, and organized websites for a business.
   </p>
     <div class="sp" in:fly={{ y: 20, delay: 400, duration: 600 }}>
-      <button type="button" class="sparkle-button" on:click={openTerms}>
+      <a href={contactHref} class="sparkle-button" style="text-decoration:none;">
         <span class="spark"></span>
         <span class="backdrop"></span>
         <svg class="sparkle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,54 +20,14 @@
           <path d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
           <path d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
-        <span class="text">See Pricing</span>
-      </button>
+        <span class="text">Contact Me</span>
+      </a>
       <div class="bodydrop"></div>
       <span aria-hidden="true" class="particle-pen">
         <!-- SVG particles here (omitted for brevity, add as needed) -->
       </span>
     </div>
 </section>
-
-{#if showTerms}
-  <div class="terms-overlay" role="presentation" in:fade={{ duration: 180 }}>
-    <div
-      class="terms-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="terms-title"
-      in:fly={{ y: 18, duration: 260, delay: 30 }}
-    >
-      <button type="button" class="terms-close" aria-label="Close terms" on:click={closeTerms}>
-        &times;
-      </button>
-      <h2 id="terms-title">Before you continue</h2>
-      <div class="terms-copy">
-        <p>I only accept Call of Duty: Mobile accounts that are bound to Garena.</p>
-        <p>
-          You confirm that you own the account or have permission from the account owner. You are
-          responsible for keeping your account secure and following Activision and Garena rules.
-        </p>
-        <p>
-          I do not use cheats, Virtual Private Network (VPN), exploits, or unauthorized software. Pricing, availability, and
-          completion time will be agreed on before work begins.
-        </p>
-      </div>
-      <div class="terms-actions">
-        <button type="button" class="terms-cancel" on:click={closeTerms} disabled={isLoadingContact}>Cancel</button>
-        <button type="button" class="terms-accept" on:click={acceptTerms} disabled={isLoadingContact}>
-          Accept &amp; Continue
-        </button>
-      </div>
-    </div>
-  </div>
-{/if}
-
-{#if isLoadingContact}
-  <div class="loading-overlay" role="status" aria-live="polite" aria-label="Loading contact page">
-    <img src={loadingGif} alt="Loading" class="loading-gif" />
-  </div>
-{/if}
 
 <style>
 /* Sparkle Button Styles - Scoped for Hero */
@@ -116,109 +55,6 @@
   transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
   scale: calc(1 + (var(--active) * 0.1));
   transition: .3s;
-}
-.terms-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.78);
-}
-.terms-modal {
-  position: relative;
-  width: min(100%, 34rem);
-  max-height: min(90vh, 40rem);
-  overflow-y: auto;
-  padding: 2rem;
-  border: 1px solid rgba(0, 180, 255, 0.45);
-  border-radius: 1rem;
-  background: #18181b;
-  color: #fff;
-  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.55), 0 0 2rem rgba(0, 140, 255, 0.2);
-}
-.terms-modal h2 {
-  margin: 0 2rem 1.25rem 0;
-  font-size: 1.5rem;
-}
-.terms-copy {
-  color: #d1d5db;
-  line-height: 1.6;
-}
-.terms-copy p + p {
-  margin-top: 0.9rem;
-}
-.terms-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.9rem;
-  border: 0;
-  background: transparent;
-  color: #d1d5db;
-  cursor: pointer;
-  font-size: 1.75rem;
-  line-height: 1;
-}
-.terms-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-.terms-cancel,
-.terms-accept {
-  border: 0;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: 700;
-  padding: 0.75rem 1rem;
-}
-.terms-cancel:disabled,
-.terms-accept:disabled {
-  cursor: wait;
-  opacity: 0.6;
-}
-.terms-cancel {
-  background: #2f3035;
-  color: #fff;
-}
-.terms-accept {
-  background: #008cff;
-  color: #fff;
-}
-.loading-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  display: grid;
-  place-items: center;
-  background: #000;
-}
-.loading-gif {
-  width: min(60vw, 20rem);
-  max-height: 60vh;
-  object-fit: contain;
-}
-.terms-cancel:hover,
-.terms-cancel:focus-visible,
-.terms-accept:hover,
-.terms-accept:focus-visible,
-.terms-close:hover,
-.terms-close:focus-visible {
-  filter: brightness(1.2);
-}
-@media (max-width: 600px) {
-  .terms-modal {
-    padding: 1.5rem;
-  }
-  .terms-actions {
-    flex-direction: column-reverse;
-  }
-  .terms-cancel,
-  .terms-accept {
-    width: 100%;
-  }
 }
 .sparkle-button:active {
   scale: 1;
