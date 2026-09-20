@@ -1,59 +1,44 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { base } from '$app/paths';
+  import discordLogo from '../assets/discord_logo.png';
+  import facebookLogo from '../assets/facebook_logo.png';
   let homeHref = base + '/';
  
 </script>
 
 <svelte:head>
-  <title>Contact | KaiiDesu</title>
+  <title>Pricing | KaiiDesu</title>
 
 </svelte:head>
 
 <section class="contact-section">
   <a href={homeHref} class="shadow__btn back-btn" in:fly={{ y: 40, duration: 500, delay: 100 }}>Back to Home</a>
-  <div class="contact-header-row">
-    <h1 class="contact-title" in:fly={{ y: 40, duration: 500, delay: 200 }}>Contact Me</h1>
-    <h1 class="contact-title-pricing" in:fly={{ y: 40, duration: 500, delay: 200 }}>Pricing</h1>
-  </div>
+  <h1 class="pricing-title" in:fly={{ y: 40, duration: 500, delay: 200 }}>Pricing</h1>
 
-  <!-- Two-column grid: left = contact desc + form, right = pricing desc + card -->
+  <!-- Pricing content -->
   <div class="desc-and-cards">
-    <div class="col contact-col">
-
-
-
-      <form class="contact-form card" in:fly={{ y: 40, duration: 500, delay: 400 }}>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-
-      <button class="shadow__btn send-btn" type="submit">Send Message</button>
-      </form>
-    </div>
-
     <div class="col pricing-col">
-
-
-
       <div class="pricing-card card" in:fly={{ y: 40, duration: 500, delay: 400 }}>
         <span class="pricing-text">Pricing Information</span>
         <p class="pricing-details">
-          Teka di pato tapos
+          Message me on Facebook or Discord for a quote and project details.
         </p>
       </div>
     </div>
   </div>
   <div class="contact-info" in:fly={{ y: 40, duration: 500, delay: 500 }}>
-    <p>Or reach out on social media below:</p>
     <div class="contact-socials">
-      <a href="https://www.facebook.com/profile.php?id=61589081225928" aria-label="Facebook">Facebook</a>
-      <a href="https://discord.com/users/1393580083230539786" aria-label="Discord">Discord</a>
+      <a href="https://www.facebook.com/profile.php?id=61589081225928" class="social-logo-link" target="_blank" rel="noreferrer" aria-label="Open Facebook">
+        <span class="social-logo-slot">
+          <img src={facebookLogo} alt="Facebook logo" />
+        </span>
+      </a>
+      <a href="https://discord.com/users/1393580083230539786" class="social-logo-link" target="_blank" rel="noreferrer" aria-label="Open Discord">
+        <span class="social-logo-slot">
+          <img src={discordLogo} alt="Discord logo" />
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -81,43 +66,24 @@
   z-index: 3; /* keep above headings */
 }
 
-.contact-header-row {
+.pricing-title {
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto 0.75rem auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 400px));
-  gap: 2rem;
-  align-items: end;
-  justify-content: center;
-}
-.contact-title,
-.contact-title-pricing {
+  max-width: 800px;
+  margin: 0 auto 0.75rem;
   font-size: 2rem;
   font-weight: 800;
   text-transform: uppercase;
-  margin: 0;
   padding: 0.25rem 0;
-  /* align titles with card content by matching the card inner padding */
   padding-left: 2.25rem;
+  text-align: left;
 }
-.contact-title { text-align: left; }
-.contact-title-pricing { text-align: left; }
 
 .desc-and-cards {
   width: 100%;
-  max-width: 1100px;
+  max-width: 800px;
   margin: 0 auto 1rem auto;
-  display: grid;
-  grid-template-columns: 400px 400px;
-  gap: 2rem;
-  align-items: start;
-  justify-content: center;
 }
 .col { display:flex; flex-direction:column; gap:1rem; }
-.contact-desc-form, .pricing-desc { color: #d1d5db; }
-.contact-desc-form { text-align:left; padding-left: 2.25rem; }
-.pricing-desc { text-align:left; padding-left: 2.25rem; }
 
 .card {
   background: rgba(255,255,255,0.06);
@@ -128,28 +94,6 @@
   flex-direction:column;
   gap: 1rem;
 }
-
-/* CONTACT FORM (restored compact look) */
-.contact-form.card {
-  width:100%;
-  max-width:400px;
-  min-width:260px;
-  padding-bottom:2.5rem; /* room for button */
-}
-.contact-form label { font-weight:600; margin-bottom:0.5rem; }
-.contact-form input,
-.contact-form textarea {
-  padding:0.9rem 1.25rem;
-  border-radius:0.75rem;
-  border:none;
-  background:#1f1f21;
-  color:#fff;
-  font-size:1rem;
-  margin-bottom:1rem;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.45);
-}
-.contact-form textarea { min-height:140px; resize:vertical; }
-.contact-form input:focus, .contact-form textarea:focus { outline:2px solid #008cff; background:#232a3d; }
 
 .shadow__btn {
   padding: 10px 20px;
@@ -172,20 +116,6 @@
               0 0 100px rgb(0,140,255);
 }
 
-.send-btn {
-  margin-top:1rem;
-  width:100%;
-  padding:14px 20px;
-  border-radius:10px;
-  font-size:14px;
-  letter-spacing:6px;
-  background: linear-gradient(180deg,#00a5ff,#0077d9);
-  color:#fff;
-  border:none;
-  box-shadow: 0 10px 36px rgba(0,140,255,0.9);
-  text-transform:uppercase;
-}
-
 /* PRICING CARD (keep the halo) */
 .pricing-card::after{
   content:''; position:absolute; inset:6px; border-radius:1rem; z-index:-1; background:rgba(255,255,255,0.03);
@@ -194,43 +124,27 @@
 .pricing-details{ color:#fff; opacity:0.95; line-height:1.6; }
 
 .contact-info{ text-align:center; color:#d1d5db; margin-top:2rem; }
-.contact-socials{ display:flex; gap:1rem; justify-content:center; margin-top:0.5rem }
-.contact-socials a{ background:#232323; padding:.5rem 1rem; border-radius:9999px; color:#fff; text-decoration:none }
+.contact-socials{ display:flex; gap:1rem; justify-content:center; margin-top:0.5rem; }
+.social-logo-link{ display:flex; align-items:center; justify-content:center; padding:0.5rem; border-radius:1rem; }
+.social-logo-slot{ width:72px; height:72px; display:block; border-radius:1rem; background:#232323; transition: box-shadow 0.2s; }
+.social-logo-link:hover .social-logo-slot,
+.social-logo-link:focus-visible .social-logo-slot{ box-shadow:0 0 20px rgba(0,140,255,0.65); }
+.social-logo-slot :global(img){ width:100%; height:100%; display:block; object-fit:contain; border-radius:0.85rem; }
 
-@media (max-width:900px){
-  .contact-header-row{ grid-template-columns:1fr; text-align:center }
-  .desc-and-cards{ grid-template-columns:1fr; max-width:98vw }
-  .contact-title-pricing{ text-align:center }
-}
-
-/* Mobile: stack content, increase touch targets, pricing below the form */
+/* Mobile: stack content and increase touch targets */
 @media (max-width:700px) {
   .contact-section { padding-top: 1rem; padding-bottom: 1.5rem; }
-  /* put pricing title above contact title on mobile */
-  .contact-header-row { gap: 0.5rem; margin-bottom: 0.5rem; display:flex; flex-direction:column-reverse; align-items:center }
-  .contact-title, .contact-title-pricing { font-size: 1.4rem; }
-  .contact-desc-form, .pricing-desc { padding-left: 0; text-align: center; }
-  .desc-and-cards { grid-template-columns: 1fr; gap: 1rem; max-width: 96vw; margin: 0 auto 1rem auto; }
-  .contact-form.card, .pricing-card.card { max-width: 100%; width: 100%; margin: 0 auto; }
-  .contact-form.card { padding: 1.25rem; }
+  .pricing-title { font-size: 1.4rem; padding-left: 1.25rem; }
+  .desc-and-cards { max-width: 96vw; }
+  .pricing-card.card { max-width: 100%; width: 100%; margin: 0 auto; }
   .pricing-card.card { padding: 1.25rem; }
-  .contact-form input, .contact-form textarea { padding: 0.85rem 1rem; font-size: 1rem; }
-  .send-btn { padding: 14px; font-size: 15px; }
-
-  /* Place pricing above the form on mobile */
-  .pricing-col { order: 1; }
-  .contact-col { order: 2; }
 
   /* Slightly reduce halo on mobile to save space/contrast */
   .pricing-card::before { filter: blur(12px); opacity: 0.35; }
 
   /* Back button smaller and aligned left */
   .back-btn { margin-left: 0.75rem; padding: 8px 14px; font-size: 13px; }
-  /* hide desktop header and use mobile column titles instead */
-  .contact-header-row { display: none; }
-  .mobile-title { display: block; text-align: center; font-size: 1.2rem; font-weight:800; text-transform:uppercase; margin: 0.5rem 0; }
-  .mobile-pricing-title { margin-top: 0.25rem; }
-  .mobile-contact-title { display: block; }
+  .social-logo-slot { width:64px; height:64px; }
 }
 
 </style>
