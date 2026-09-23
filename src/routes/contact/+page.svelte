@@ -143,6 +143,8 @@
 .col { display:flex; flex-direction:column; gap:1rem; }
 
 .card {
+  box-sizing: border-box;
+  width: 100%;
   background: rgba(255,255,255,0.06);
   border-radius: 1.25rem;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
