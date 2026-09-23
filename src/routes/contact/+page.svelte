@@ -1,10 +1,22 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { base } from '$app/paths';
+  import { goto } from '$app/navigation';
+  import loadingGif from '../assets/codm-loading.gif';
   import discordLogo from '../assets/discord_logo.png';
   import facebookLogo from '../assets/facebook_logo.png';
   let homeHref = base + '/';
- 
+  let isLoadingHome = false;
+
+  function goHome() {
+    if (isLoadingHome) return;
+
+    isLoadingHome = true;
+    setTimeout(() => {
+      goto(homeHref);
+    }, 4500);
+  }
+
 </script>
 
 <svelte:head>
@@ -13,7 +25,7 @@
 </svelte:head>
 
 <section class="contact-section">
-  <a href={homeHref} class="shadow__btn back-btn" in:fly={{ y: 40, duration: 500, delay: 100 }}>Back to Home</a>
+  <a href={homeHref} class="shadow__btn back-btn" data-no-delay on:click|preventDefault={goHome} in:fly={{ y: 40, duration: 500, delay: 100 }}>Back to Home</a>
   <h1 class="pricing-title" in:fly={{ y: 40, duration: 500, delay: 200 }}>Pricing</h1>
 
   <!-- Pricing content -->
@@ -51,7 +63,7 @@
         </div>
         <p class="services-link-text">
           See the difference of
-          <a href={base + '/pilot-services'}>Rush Pilot and Standard Pilot Services</a>
+          <a href={base + '/pilot-services/'}>Rush Pilot and Standard Pilot Services</a>
         </p>
       </div>
     </div>
@@ -71,6 +83,12 @@
     </div>
   </div>
 </section>
+
+{#if isLoadingHome}
+  <div class="loading-overlay" role="status" aria-live="polite" aria-label="Loading home page">
+    <img src={loadingGif} alt="Loading" class="loading-gif" />
+  </div>
+{/if}
 
 <style>
 /* small, focused stylesheet for contact page */
@@ -164,6 +182,8 @@
 .social-logo-link:hover .social-logo-slot,
 .social-logo-link:focus-visible .social-logo-slot{ box-shadow:0 0 20px rgba(0,140,255,0.65); }
 .social-logo-slot :global(img){ width:100%; height:100%; display:block; object-fit:contain; border-radius:0.85rem; }
+.loading-overlay{ position:fixed; inset:0; z-index:60; display:grid; place-items:center; background:#000; }
+.loading-gif{ width:min(60vw, 20rem); max-height:60vh; object-fit:contain; }
 
 /* Mobile: stack content and increase touch targets */
 @media (max-width:700px) {

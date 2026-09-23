@@ -8,7 +8,7 @@
 </svelte:head>
 
 <section class="services-page">
-  <a href={base + '/contact'} class="back-link" in:fly={{ y: 30, duration: 400 }}>Back to Pricing</a>
+  <a href={base + '/contact/'} class="shadow__btn back-btn" in:fly={{ y: 30, duration: 400 }}>Back to Pricing</a>
   <h1 in:fly={{ y: 30, duration: 400, delay: 100 }}>Rush Pilot and Standard Pilot Services</h1>
 
   <div class="services-grid">
@@ -31,11 +31,35 @@
     color: #fff;
   }
 
-  .back-link {
+  .back-btn {
+    align-self: flex-start;
+    margin: 0 0 2rem 0;
+    position: relative;
+    z-index: 3;
+  }
+
+  .shadow__btn {
     display: inline-block;
-    margin-bottom: 2rem;
+    padding: 10px 20px;
+    border: none;
+    font-size: 17px;
     color: #fff;
+    border-radius: 7px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
     text-decoration: none;
+    transition: 0.5s;
+    transition-property: box-shadow;
+    background: rgb(0, 140, 255);
+    box-shadow: 0 0 25px rgb(0, 140, 255);
+  }
+
+  .shadow__btn:hover {
+    box-shadow: 0 0 5px rgb(0, 140, 255),
+      0 0 25px rgb(0, 140, 255),
+      0 0 50px rgb(0, 140, 255),
+      0 0 100px rgb(0, 140, 255);
   }
 
   h1 {
@@ -64,5 +88,6 @@
 
   @media (max-width: 600px) {
     .services-grid { grid-template-columns: 1fr; }
+    .back-btn { margin-left: 0; padding: 8px 14px; font-size: 13px; }
   }
 </style>
