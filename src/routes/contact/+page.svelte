@@ -21,8 +21,37 @@
     <div class="col pricing-col">
       <div class="pricing-card card" in:fly={{ y: 40, duration: 500, delay: 400 }}>
         <span class="pricing-text">Pricing Information</span>
-        <p class="pricing-details">
-          Message me on Facebook or Discord for a quote and project details.
+        <p>Rush Services:</p>
+        <div class="pricing-list">
+          <div class="pricing-row">
+            <span>Rookie &rarr; Pro</span>
+            <strong>₱100</strong>
+          </div>
+          <div class="pricing-row">
+            <span>Pro &rarr; Master</span>
+            <strong>₱120</strong>
+          </div>
+          <div class="pricing-row">
+            <span>Grandmaster &rarr; Legendary</span>
+            <strong>₱140</strong>
+          </div>
+        <p>Standard Pilot Services:</p>
+          <div class="pricing-row">
+            <span>Rookie &rarr; Pro</span>
+            <strong>₱70</strong>
+          </div>
+          <div class="pricing-row">
+            <span>Pro &rarr; Master</span>
+            <strong>₱100</strong>
+          </div>
+          <div class="pricing-row">
+            <span>Master &rarr; Grandmaster</span>
+            <strong>₱120</strong>
+          </div>
+        </div>
+        <p class="services-link-text">
+          See the difference of
+          <a href={base + '/pilot-services'}>Rush Pilot and Standard Pilot Services</a>
         </p>
       </div>
     </div>
@@ -121,7 +150,9 @@
   content:''; position:absolute; inset:6px; border-radius:1rem; z-index:-1; background:rgba(255,255,255,0.03);
 }
 .pricing-text{ font-size:1.25rem; font-weight:600; margin-bottom:0.5rem; }
-.pricing-details{ color:#fff; opacity:0.95; line-height:1.6; }
+.pricing-list{ display:flex; flex-direction:column; gap:0.75rem; }
+.pricing-row{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(255,255,255,0.07); color:#fff; }
+.pricing-row strong{ color:#ffd21f; font-size:1.25rem; white-space:nowrap; }
 
 .contact-info{ text-align:center; color:#d1d5db; margin-top:2rem; }
 .contact-socials{ display:flex; gap:1rem; justify-content:center; margin-top:0.5rem; }
