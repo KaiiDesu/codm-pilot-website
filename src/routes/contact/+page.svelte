@@ -184,10 +184,8 @@
 .pricing-row-leaderboard{ position:relative; isolation:isolate; overflow:hidden; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,207,255,0.06); color:#fff; box-shadow:0 0 8px rgba(0,207,255,0.7), 0 0 22px rgba(255,0,128,0.35); }
 .pricing-row-leaderboard::before{ content:''; position:absolute; inset:-2px; z-index:-2; border-radius:0.85rem; background:linear-gradient(90deg, #ff0080, #ff7a00, #ffd21f, #00ff95, #00cfff, #7928ca, #ff0080); background-size:300% 100%; animation:leaderboard-rainbow-flow 4s linear infinite; }
 .pricing-row-leaderboard::after{ content:''; position:absolute; inset:2px; z-index:-1; border-radius:0.6rem; background:#25262a; box-shadow:inset 0 0 14px rgba(0,207,255,0.18); }
-.pricing-row-leaderboard span,
-.pricing-row-leaderboard strong{ color:#ffd21f; font-size:1.25rem; white-space:nowrap; }
-.pricing-row-leaderboard span{ position:relative; z-index:1; color:#fff; }
-.pricing-row-leaderboard strong{ position:relative; z-index:1; }
+.pricing-row-leaderboard span{ position:relative; z-index:1; flex:1 1 auto; min-width:0; color:#fff; line-height:1.35; }
+.pricing-row-leaderboard strong{ position:relative; z-index:1; flex:0 0 auto; color:#ffd21f; font-size:1.25rem; white-space:nowrap; }
 @keyframes leaderboard-rainbow-flow{ 0%{ background-position:0% 50%; } 100%{ background-position:300% 50%; } }
 .services-link-text a{ color:#008cff; text-decoration:underline; text-underline-offset:0.2em; }
 .services-link-text a:hover,
