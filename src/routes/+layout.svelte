@@ -3,7 +3,7 @@
 	import '../app.css';
 	import { navigating } from '$app/stores';
 	import { onDestroy } from 'svelte';
-	import { goto as svelteGoto } from '$app/navigation';
+	import { afterNavigate, goto as svelteGoto } from '$app/navigation';
 	let { children } = $props();
 
 
@@ -12,6 +12,10 @@
 	let navigationStart = 0;
 	const MIN_DISPLAY_TIME = 800;
 	let isDelaying = false;
+
+	afterNavigate(() => {
+		window.scrollTo(0, 0);
+	});
 
 	
 	export async function goto(href: string, opts?: any) {
