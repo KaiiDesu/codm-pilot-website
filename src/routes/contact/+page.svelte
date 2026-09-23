@@ -153,6 +153,9 @@
 .pricing-list{ display:flex; flex-direction:column; gap:0.75rem; }
 .pricing-row{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(255,255,255,0.07); color:#fff; }
 .pricing-row strong{ color:#ffd21f; font-size:1.25rem; white-space:nowrap; }
+.services-link-text a{ color:#008cff; text-decoration:underline; text-underline-offset:0.2em; }
+.services-link-text a:hover,
+.services-link-text a:focus-visible{ color:#66c2ff; }
 
 .contact-info{ text-align:center; color:#d1d5db; margin-top:2rem; }
 .contact-socials{ display:flex; gap:1rem; justify-content:center; margin-top:0.5rem; }
