@@ -29,6 +29,7 @@
     padding: 1.25rem 1.25rem 3rem;
     background: #18181b;
     color: #fff;
+    font-family: ui-sans-serif, system-ui, sans-serif;
   }
 
   .back-btn {
@@ -65,7 +66,9 @@
   h1 {
     max-width: 800px;
     margin: 0 auto 2rem;
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     text-align: center;
   }
 
