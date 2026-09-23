@@ -33,6 +33,11 @@
     <div class="col pricing-col">
       <div class="pricing-card card" in:fly={{ y: 40, duration: 500, delay: 400 }}>
         <span class="pricing-text">Pricing Information</span>
+        <p>Leaderboard Pilot Services:</p>
+        <div class="pricing-row-leaderboard">
+          <span>Legendary &rarr; Legendary Top 5000</span>
+          <strong>₱250</strong>
+        </div>
         <p>Rush Services:</p>
         <div class="pricing-list">
           <div class="pricing-row">
@@ -45,7 +50,7 @@
           </div>
           <div class="pricing-row">
             <span>Grandmaster &rarr; Legendary</span>
-            <strong>₱140</strong>
+            <strong>₱190</strong>
           </div>
         <p>Standard Pilot Services:</p>
           <div class="pricing-row">
@@ -60,6 +65,11 @@
             <span>Master &rarr; Grandmaster</span>
             <strong>₱120</strong>
           </div>
+          <div class="pricing-row">
+            <span>Grandmaster &rarr; Legendary</span>
+            <strong>₱140</strong>
+          </div>
+        
         </div>
         <p class="services-link-text">
           See the difference of
@@ -171,6 +181,14 @@
 .pricing-list{ display:flex; flex-direction:column; gap:0.75rem; }
 .pricing-row{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(255,255,255,0.07); color:#fff; }
 .pricing-row strong{ color:#ffd21f; font-size:1.25rem; white-space:nowrap; }
+.pricing-row-leaderboard{ position:relative; isolation:isolate; overflow:hidden; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,207,255,0.06); color:#fff; box-shadow:0 0 8px rgba(0,207,255,0.7), 0 0 22px rgba(255,0,128,0.35); }
+.pricing-row-leaderboard::before{ content:''; position:absolute; inset:-2px; z-index:-2; border-radius:0.85rem; background:linear-gradient(90deg, #ff0080, #ff7a00, #ffd21f, #00ff95, #00cfff, #7928ca, #ff0080); background-size:300% 100%; animation:leaderboard-rainbow-flow 4s linear infinite; }
+.pricing-row-leaderboard::after{ content:''; position:absolute; inset:2px; z-index:-1; border-radius:0.6rem; background:#25262a; box-shadow:inset 0 0 14px rgba(0,207,255,0.18); }
+.pricing-row-leaderboard span,
+.pricing-row-leaderboard strong{ color:#ffd21f; font-size:1.25rem; white-space:nowrap; }
+.pricing-row-leaderboard span{ position:relative; z-index:1; color:#fff; }
+.pricing-row-leaderboard strong{ position:relative; z-index:1; }
+@keyframes leaderboard-rainbow-flow{ 0%{ background-position:0% 50%; } 100%{ background-position:300% 50%; } }
 .services-link-text a{ color:#008cff; text-decoration:underline; text-underline-offset:0.2em; }
 .services-link-text a:hover,
 .services-link-text a:focus-visible{ color:#66c2ff; }
