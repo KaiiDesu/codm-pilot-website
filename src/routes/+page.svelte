@@ -49,7 +49,7 @@
 </script>
 
 <svelte:head>
-  <title>LoveuDenji | KaiiDesu</title>
+  <title>Homepage | KaiiDesu</title>
 </svelte:head>
 
 <Menu />
