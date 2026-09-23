@@ -13,8 +13,15 @@
 	const MIN_DISPLAY_TIME = 800;
 	let isDelaying = false;
 
-	afterNavigate(() => {
+	function scrollToTop() {
 		window.scrollTo(0, 0);
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => window.scrollTo(0, 0));
+		});
+	}
+
+	afterNavigate(() => {
+		scrollToTop();
 	});
 
 	
@@ -32,6 +39,7 @@
 		}
 		await new Promise((resolve) => setTimeout(resolve, MIN_DISPLAY_TIME));
 		await svelteGoto(href, opts);
+		scrollToTop();
 		isDelaying = false;
 	}
 
